@@ -47,7 +47,7 @@ c) 输入 `cnpm install` 来安装依赖模块。
 
 ### 2.使用工作流
 
-### 首先需要先编译js
+#### 首先需要先编译js
 js文件支持ES6，并全部交由webpack来打包。
 输入: npm run webpack_js
 
@@ -60,7 +60,7 @@ js文件支持ES6，并全部交由webpack来打包。
 此模式下不会进行css\js\图片压缩、css文件名\图片文件名 md5 重命令等工作。
 
 #### 发布模式：
-git 环境下输入 `gulp publish`。
+git 环境下输入 `gulp build`。
 
 此模式为最终发布用。
 
