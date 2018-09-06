@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/*
+* @name: config
+* @description: 定义全站样式默认值.
+* @author: Jin Ye(jinye@yy.com)
+*/
+
+
+/* 颜色设置
+===================================*/
+$orange: 		#fe7f00 !default;
+$lightGrey: 	#909090 !default;
+$normalGrey: 	#575757 !default;
+$titleGrey:     #505050 !default;
+$darkGrey: 		#0e0e0e !default;
+$splitGrey:     #cdcdcd !default;
+$defaultColor:  #ffffff !default;
+$bgColor: 		#f6f7fa !default;
+$lineColor:     #f5f5f5 !default;
+$linkColor:     #333333 !default;
+$dropdownHover: #f2f2f2 !default;
+
+// 用于文字链接hover
+$orange: 		#fe7f00 !default;
+// 用于导航菜单
+$color-c1:      #000    !default;
+// 登录信息、视频标题、
+$color-c2:      #333    !default;
+// 模块标题、导航菜单右侧文字
+$color-c3:      #555    !default;
+// topbar标题
+$color-c4:      #666    !default;
+// 视频列表人数，时间文字
+$color-c5:      #999    !default;
+// 首页A区、排行榜头图文字
+$color-c6:      #fff    !default;
+// 分隔线颜色
+$color-split:   #ddd    !default;
+
+/* 层级设置 
+===================================*/
+$topbarZIndex:       10010 !default;
+$dropdownHdZIndex:   10001 !default;
+$dropdownZIndex:     10000 !default;
+$maskLinkZIndex:     1001  !default;
+$maskZIndex:         1000  !default;
+$gotopZIndex:        10011 !default;
+$badgeZIndex:        100   !default;
+$slidePageZIndex:    10000 !default;
+
+/* 字体大小 
+===================================*/
+$font12:  12px !default;
+$font14:  14px !default;
+$font16:  16px !default;
+$font18:  18px !default;
+$font20:  20px !default;
+$font24:  24px !default;
+$font28:  28px !default;
+$font30:  30px !default;
+
+/* 中文字体
+===================================*/
+$fontSrc: "Microsoft YaHei", "微软雅黑" !default;
+$fontSong: "\5B8B\4F53", sans-serif;

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@import "./partials/style";
+@import "./partials/footer";
+@import "./partials/header";
+body {
+    margin: 20px;
+}
+
+p,
+ul {
+    color: #000;
+}
+
+div,
+p,
+ul {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.cssbg {
+    height: 32px;
+    background: url(../img/loading.gif) no-repeat;
+    background-size: 32px 32px;
+}
