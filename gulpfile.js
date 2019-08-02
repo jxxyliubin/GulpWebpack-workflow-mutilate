@@ -19,9 +19,13 @@ var autoprefixer = require('autoprefixer');
 var webpack = require('webpack-stream');
 
 //清除文件
+// gulp.task('clean', function() {
+//     return gulp.src(['dist/**/*.*', '!dist/**/*.swf'])
+//         .pipe(clean());
+// });
+// Clean  任务执行前，先清除之前生成的文件
 gulp.task('clean', function() {
-    return gulp.src(['dist/**/*.*', '!dist/**/*.swf'])
-        .pipe(clean());
+    return del(['dist/**/*.*', '!dist/phalapi/**/*.*'])
 });
 
 //合并复制HTML文件
@@ -155,13 +159,6 @@ gulp.task('revUrl', function() {
 //替换完后删除存放对应关系json的rev文件夹
 gulp.task('clean-rev', function() {
     return del(['dist/assets/rev']);
-});
-
-
-//删除文件
-// Clean  任务执行前，先清除之前生成的文件
-gulp.task('clean', function() {
-    return del(['dist/**/*'])
 });
 
 // 静态服务器
