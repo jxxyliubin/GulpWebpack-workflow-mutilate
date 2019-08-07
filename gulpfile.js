@@ -25,7 +25,7 @@ var webpack = require('webpack-stream');
 // });
 // Clean  任务执行前，先清除之前生成的文件
 gulp.task('clean', function() {
-    return del(['dist/**/*.*', '!dist/phalapi/**/*.*'])
+    return del(['dist/**/*.*', '!dist/phalapi/**/*.*'],{"force":true})
 });
 
 //合并复制HTML文件
@@ -37,6 +37,11 @@ gulp.task('html', function() {
         }))
         .on('error', function(e) { console.log(e) })
         .pipe(gulp.dest('dist'));
+});
+//复制php文件
+gulp.task('phalapi', function() {
+    return gulp.src(['./phalapi/src/**/*.*'])
+        .pipe(gulp.dest('dist/phalapi/src'));
 });
 
 //sass
@@ -158,7 +163,7 @@ gulp.task('revUrl', function() {
 });
 //替换完后删除存放对应关系json的rev文件夹
 gulp.task('clean-rev', function() {
-    return del(['dist/assets/rev']);
+    return del(['dist/assets/rev'],{"force":true});
 });
 
 // 静态服务器
@@ -176,6 +181,8 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
     // Watch .html files
     gulp.watch('app/**/*.html', ['reloadHtml']).on('change', browserSync.reload);
+    // Watch phalapi files
+    gulp.watch('phalapi/**/*.*', ['reloadphalapi']).on('change', browserSync.reload);
     // Watch .scss files
     gulp.watch('app/**/*.scss', ['reloadCss']).on('change', browserSync.reload);
     // Watch .top files
@@ -189,6 +196,7 @@ gulp.task('watch', function() {
 
 //重载
 gulp.task("reloadHtml", ["html"]);
+gulp.task("reloadphalapi", ["phalapi"]);
 gulp.task("reloadCss", ["sass"]);
 gulp.task("reloadTpl", ["js"]);
 gulp.task("reloadJs", ["js"]);
@@ -200,8 +208,8 @@ gulp.task("reloadImg", ["image"]);
 // 设置默认任务和发布任务
 gulp.task('default', sequence(
     // ['clean'],
-    ['libs', 'image', 'sass', 'js', 'html'], ['browser-sync'], ['watch']
+    ['libs', 'image', 'sass', 'js', 'html', 'phalapi'], ['browser-sync'], ['watch']
 ));
 gulp.task('build', sequence(
-    ['clean'], ['sass-compress', 'js-compress', 'html'],['libs', 'image-compress'],  ['revUrl'], ['clean-rev']
+    ['clean'], ['sass-compress', 'js-compress', 'html', 'phalapi'],['libs', 'image-compress'],  ['revUrl'], ['clean-rev']
 ));
